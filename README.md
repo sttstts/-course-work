@@ -153,11 +153,17 @@ CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'password123';
 CREATE USER 'instructor_user'@'localhost' IDENTIFIED BY 'password123';
 CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'adminpass';
 
-GRANT SELECT ON mydatabase.* TO 'student_user'@'localhost';
+GRANT SELECT ON language_platform.courses TO 'student_user'@'localhost';
+GRANT SELECT ON language_platform.lessons TO 'student_user'@'localhost';
+GRANT SELECT ON language_platform.instructors TO 'student_user'@'localhost';
+GRANT SELECT ON language_platform.progress TO 'student_user'@'localhost';
 
-GRANT SELECT, INSERT, UPDATE ON mydatabase.* TO 'instructor_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON language_platform.courses TO 'instructor_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON language_platform.lessons TO 'instructor_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON language_platform.instructors TO 'instructor_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON language_platform.progress TO 'instructor_user'@'localhost';
 
-GRANT ALL PRIVILEGES ON mydatabase.* TO 'admin_user'@'localhost';
+GRANT ALL PRIVILEGES ON language_platform.* TO 'admin_user'@'localhost';
 
 FLUSH PRIVILEGES;
 ```
